@@ -6,7 +6,10 @@ const db = pgp({
   port: 5432,
   database: process.env.DB_NAME,
   user: process.env.DB_USER,
-  password: process.env.DB_PASS
+  password: process.env.DB_PASS,
+  ssl: {
+    rejectUnauthorized: false // set to true if you want to enforce ssl certificate validation
+  }
 });
 
 module.exports = db;
